@@ -24,5 +24,6 @@ func (t TokenInvalidError) Is(target error) bool {
 	if tokenInvalidErr, ok := target.(TokenInvalidError); ok {
 		return tokenInvalidErr == t
 	}
+
 	return false
 }
