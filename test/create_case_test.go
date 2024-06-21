@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/amidgo/jwt"
+	jwtmocks "github.com/amidgo/jwt/mocks"
 	"gotest.tools/v3/assert"
 )
 
@@ -13,8 +14,8 @@ type CreateTokenTester struct {
 	Name        string
 	Description string
 
-	Encoder       *jwt.MockEncoder
-	SigningMethod *jwt.MockSigningMethod
+	Encoder       *jwtmocks.MockEncoder
+	SigningMethod *jwtmocks.MockSigningMethod
 
 	Input          CreateTokenCallInput
 	ExpectedOutput CreateTokenCallOutput
@@ -93,8 +94,8 @@ func (c *CreateTokenTester) String() string {
 }
 
 type CreateTokenCaseCreator struct {
-	Encoder       *jwt.MockEncoder
-	SigningMethod *jwt.MockSigningMethod
+	Encoder       *jwtmocks.MockEncoder
+	SigningMethod *jwtmocks.MockSigningMethod
 }
 
 func (c *CreateTokenCaseCreator) NewCreateTokenCase(name string) *CreateTokenCase {

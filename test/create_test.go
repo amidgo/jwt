@@ -6,12 +6,13 @@ import (
 	"testing"
 
 	"github.com/amidgo/jwt"
+	jwtmocks "github.com/amidgo/jwt/mocks"
 	"github.com/amidgo/tester"
 	"github.com/golang/mock/gomock"
 )
 
-func NewMockSigningMethod(ctrl *gomock.Controller, alg string) *jwt.MockSigningMethod {
-	signingMethod := jwt.NewMockSigningMethod(ctrl)
+func NewMockSigningMethod(ctrl *gomock.Controller, alg string) *jwtmocks.MockSigningMethod {
+	signingMethod := jwtmocks.NewMockSigningMethod(ctrl)
 	signingMethod.EXPECT().Alg().Return(alg).AnyTimes()
 	return signingMethod
 }
@@ -19,7 +20,7 @@ func NewMockSigningMethod(ctrl *gomock.Controller, alg string) *jwt.MockSigningM
 func Test_CreateToken(t *testing.T) {
 	const signingMethodAlg = "HS256"
 	ctrl := gomock.NewController(t)
-	encoder := jwt.NewMockEncoder(ctrl)
+	encoder := jwtmocks.NewMockEncoder(ctrl)
 	signingMethod := NewMockSigningMethod(ctrl, signingMethodAlg)
 	caseCreator := CreateTokenCaseCreator{
 		Encoder:       encoder,

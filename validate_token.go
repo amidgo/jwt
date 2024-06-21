@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-//go:generate mockgen -source validate_token.go -destination validate_token_mocks.go -package jwt
+//go:generate mockgen -source validate_token.go -destination mocks/validate_token_mocks.go -package jwtmocks
 
 var (
 	ErrNoExpiration TokenInvalidError = "invalid"

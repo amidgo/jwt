@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/amidgo/jwt"
+	jwtmocks "github.com/amidgo/jwt/mocks"
 	"github.com/amidgo/tester"
 	"github.com/golang/mock/gomock"
 	"gotest.tools/v3/assert"
@@ -56,7 +57,7 @@ func Test_ParseToken(t *testing.T) {
 	const signingMethodAlg = "RS256"
 	ctrl := gomock.NewController(t)
 
-	decoder := jwt.NewMockDecoder(ctrl)
+	decoder := jwtmocks.NewMockDecoder(ctrl)
 	signingMethod := NewMockSigningMethod(ctrl, signingMethodAlg)
 
 	caseCreator := ParseTokenCaseCreator{

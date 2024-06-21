@@ -6,8 +6,7 @@ import (
 	"strings"
 )
 
-//go:generate mockgen -source parse.go -destination parse_mocks.go -package jwt
-
+//go:generate mockgen -source parse.go -destination mocks/parse_mocks.go -package jwtmocks
 var (
 	ErrBadToken        TokenInvalidError = "bad_token"
 	ErrSignNotVerified TokenInvalidError = "wrong_sign"

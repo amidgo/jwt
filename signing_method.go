@@ -1,6 +1,6 @@
 package jwt
 
-//go:generate mockgen -source signing_method.go -destination signing_method_mocks.go -package jwt
+//go:generate mockgen -source signing_method.go -destination mocks/signing_method_mocks.go -package jwtmocks
 
 type SigningMethod interface {
 	Alg() string

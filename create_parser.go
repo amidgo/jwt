@@ -1,6 +1,6 @@
 package jwt
 
-//go:generate mockgen -source create_parser.go -destination create_parser_mocks.go -package jwt -aux_files=github.com/Esus-Project/esus-auth/pkg/jwt=create.go,github.com/Esus-Project/esus-auth/pkg/jwt=parse.go
+//go:generate mockgen -source create_parser.go -destination mocks/create_parser_mocks.go -package jwtmocks -aux_files=github.com/amidgo/jwt=create.go,github.com/amidgo/jwt=parse.go
 
 type TokenParser interface {
 	ParseToken(accessToken string) (Token, error)

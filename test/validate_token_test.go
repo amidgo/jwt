@@ -5,6 +5,7 @@ import (
 	"time"
 
 	"github.com/amidgo/jwt"
+	jwtmocks "github.com/amidgo/jwt/mocks"
 	"github.com/golang/mock/gomock"
 	"gotest.tools/v3/assert"
 )
@@ -21,8 +22,8 @@ func NewMockTokenValidatorCreator(ctrl *gomock.Controller, token jwt.Token) *Moc
 	}
 }
 
-func (c *MockTokenValidatorCreator) NewTokenValidator(err error) *jwt.MockTokenValidator {
-	tokenValidator := jwt.NewMockTokenValidator(c.ctrl)
+func (c *MockTokenValidatorCreator) NewTokenValidator(err error) *jwtmocks.MockTokenValidator {
+	tokenValidator := jwtmocks.NewMockTokenValidator(c.ctrl)
 	tokenValidator.EXPECT().ValidateToken(c.token).Return(err).AnyTimes()
 	return tokenValidator
 }

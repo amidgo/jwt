@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/amidgo/jwt"
+	jwtmocks "github.com/amidgo/jwt/mocks"
 	"gotest.tools/v3/assert"
 )
 
@@ -12,8 +13,8 @@ type ParseTokenTester struct {
 	Name        string
 	Description string
 
-	Decoder       *jwt.MockDecoder
-	SigningMethod *jwt.MockSigningMethod
+	Decoder       *jwtmocks.MockDecoder
+	SigningMethod *jwtmocks.MockSigningMethod
 
 	Input          ParseTokenInput
 	ExpectedOutput ParseTokenOutput
@@ -86,8 +87,8 @@ func (c *ParseTokenTester) String() string {
 }
 
 type ParseTokenCaseCreator struct {
-	Decoder       *jwt.MockDecoder
-	SigningMethod *jwt.MockSigningMethod
+	Decoder       *jwtmocks.MockDecoder
+	SigningMethod *jwtmocks.MockSigningMethod
 }
 
 func (p *ParseTokenCaseCreator) NewParseTokenCase(name string) *ParseTokenCase {
